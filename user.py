@@ -1,4 +1,5 @@
 import hashlib
+from random import random, randint
 from brta import BRTA
 from vehicles import *
 from ride_manager import *
@@ -80,15 +81,15 @@ class Driver(User):
     def register_a_vehicle(self, vehicle_type, license_plate):
         if self.valid_driver is True:
             if vehicle_type == 'car':
-                new_vehicle = Car(vehicle_type, license_plate, rate, self.email)
-                uber.add_a_vehicle(new_vehicle)
+                new_vehicle = Car(vehicle_type, license_plate, rate, self)
+                uber.add_a_vehicle(vehicle_type ,new_vehicle)
             elif vehicle_type == 'bike':
-                new_vehicle = Bike(vehicle_type, license_plate, rate, self.email)
-                uber.add_a_vehicle(new_vehicle)
+                new_vehicle = Bike(vehicle_type, license_plate, rate, self)
+                uber.add_a_vehicle(vehicle_type ,new_vehicle)
 
             else:
-                new_vehicle = Cng(vehicle_type, license_plate, rate, self.email)
-                uber.add_a_vehicle(new_vehicle)
+                new_vehicle = Cng(vehicle_type, license_plate, rate, self)
+                uber.add_a_vehicle(vehicle_type ,new_vehicle)
 
             
         else:
@@ -103,12 +104,4 @@ class Driver(User):
 
 
 
-   
-userab = User('sb', 'ab@hh', 'hhjj')
-User.log_in('ab@hh', 'hhjj') 
-
-kuber = Driver('kuber', 'kuber@.com', 'kopila', 54, 4554)
-
-result = license_authority.validate_license(kuber.email, kuber.license)
-print(result)
-kuber.take_driving_test()
+rider1 = Rider('rider1', 'rider1@gmail.com', 'rider1', randint(0,100), 5000)
