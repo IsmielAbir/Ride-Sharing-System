@@ -1,4 +1,5 @@
 from abc import ABC, abstractmethod
+from time import sleep
 
 class Vehicle(ABC):
     speed = {
@@ -27,9 +28,16 @@ class Car(Vehicle):
     def __init__(self, vehicle_type, license_plate, rate, driver) -> None:
         super().__init__(vehicle_type, license_plate, rate, driver)
            
-    def start_driving(self):
+    def start_driving(self, start, destination):
         self.status = 'unavailable'
         print(self.vehicle_type, self.license_plate, 'started')
+        distance  = abs(start - destination)
+        for i in range(0, distance):
+            sleep(0.5)
+            print(f'driving: {self.license_plate} current position: {i} of {distance}\n')
+        self.trip_finish()
+        
+        
     
     def trip_finish(self):
         self.status = 'available'
@@ -40,9 +48,14 @@ class Bike(Vehicle):
     def __init__(self, vehicle_type, license_plate, rate, driver) -> None:
         super().__init__(vehicle_type, license_plate, rate, driver)
            
-    def start_driving(self):
+    def start_driving(self, start, destination):
         self.status = 'unavailable'
         print(self.vehicle_type, self.license_plate, 'started')
+        distance  = abs(start - destination)
+        for i in range(0, distance):
+            sleep(0.5)
+            print(f'driving: {self.license_plate} current position: {i} of {distance}\n')
+        self.trip_finish()
     
     def trip_finish(self):
         self.status = 'available'
@@ -54,9 +67,14 @@ class Cng(Vehicle):
     def __init__(self, vehicle_type, license_plate, rate, driver) -> None:
         super().__init__(vehicle_type, license_plate, rate, driver)
            
-    def start_driving(self):
+    def start_driving(self, start, destination):
         self.status = 'unavailable'
         print(self.vehicle_type, self.license_plate, 'started')
+        distance  = abs(start - destination)
+        for i in range(0, distance):
+            sleep(0.5)
+            print(f'driving: {self.license_plate} current position: {i} of {distance}\n')
+        self.trip_finish()
     
     def trip_finish(self):
         self.status = 'available'
