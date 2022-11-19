@@ -6,7 +6,7 @@ class Vehicle(ABC):
         'bike':50,
         'cng': 15 
     }
-    def __init__(self,license_plate, vehicle_type, rate, driver) -> None:
+    def __init__(self, vehicle_type, license_plate,  rate, driver) -> None:
         self.vehicle_type = vehicle_type
         self.rate = rate
         self.driver = driver
